@@ -1,0 +1,39 @@
+BRASA BRASIL - LOGIN E HISTÓRICO POR CLIENTE
+
+O que foi ajustado:
+- Cadastro grava nome, e-mail e senha no SQLite.
+- A tela Entrar agora é uma tela de login separada e pede NOME + SENHA.
+- Ao autenticar, o cliente é colocado na Sessao e segue para o Cardápio.
+- Finalizar Pedido grava os produtos, valor, data e e-mail do cliente logado.
+- BancoDeDados.getPedidosDoUsuario(gmail) consulta somente os pedidos daquele cliente.
+- O banco brasabrasil.db continua na pasta principal do projeto, preservando os dados já existentes.
+
+Como abrir:
+1. Extraia a pasta BrasaBrasilORIGINAL.
+2. Abra essa pasta no IntelliJ IDEA como projeto Maven.
+3. Aguarde o Maven carregar as dependências.
+4. Execute Launcher (ou HelloApplication, conforme sua configuração atual).
+5. Faça um cadastro. Depois clique em ENTRAR NA MINHA CONTA.
+6. Entre usando o NOME cadastrado e a SENHA.
+7. No Cardápio, adicione produtos e clique em FINALIZAR PEDIDO.
+
+IMPORTANTE:
+- O histórico só é gravado quando existe uma conta autenticada.
+- Cada pedido fica associado ao e-mail do cliente que está na sessão.
+- Não apague brasabrasil.db: ele contém os cadastros e pedidos salvos.
+- A compilação automática não pôde ser executada neste ambiente porque o Maven Wrapper
+  precisaria baixar o Maven da internet, e a conexão externa está bloqueada.
+
+
+GERENCIAR CARDÁPIO (administrador Kauan)
+- Ao entrar como Kauan, o cabeçalho mostra: Histórico, Adicionar Item e Atualizar Itens.
+- Adicionar Item: escolha a categoria e informe nome, valor e descrição.
+- Atualizar Itens: selecione um item na tabela e edite nome, valor, categoria ou descrição.
+- Os itens ficam na tabela "produtos" do brasabrasil.db (criada e preenchida com o cardápio
+  original automaticamente na primeira execução).
+
+
+VER PEDIDO (qualquer cliente logado)
+- Botao "Ver Pedido" no cabecalho para quem esta logado.
+- Lista os pedidos da conta (todos Pendente) com itens e valor total.
+- Pagamento Debito/Credito e ilustrativo: nao cobra nada e nao altera o status.

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    CARDÁPIO
+    Três colunas com larguras fixas nas laterais e área de produtos flexível no centro:
+      [ categorias ] [ produtos (grade centralizada) ] [ seu pedido ]
+-->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.CardapioController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <!-- ================= CATEGORIAS ================= -->
+    <left>
+        <VBox styleClass="barra-lateral"
+              spacing="8.0"
+              minWidth="230.0"
+              prefWidth="230.0"
+              maxWidth="230.0">
+
+            <Label text="EXPLORE" styleClass="texto-mini"/>
+            <Label text="Nosso cardápio" styleClass="lateral-titulo" wrapText="true"/>
+
+            <Region minHeight="14.0" prefHeight="14.0"/>
+
+            <Button fx:id="btnHamburgueres"
+                    text="🍔   Hambúrgueres"
+                    onAction="#mostrarHamburgueres"
+                    maxWidth="Infinity"
+                    styleClass="item-cardapio"/>
+
+            <Button fx:id="btnBebidas"
+                    text="🍹   Bebidas"
+                    onAction="#mostrarBebidas"
+                    maxWidth="Infinity"
+                    styleClass="item-cardapio"/>
+
+            <Button fx:id="btnSobremesas"
+                    text="🍰   Sobremesas"
+                    onAction="#mostrarSobremesas"
+                    maxWidth="Infinity"
+                    styleClass="item-cardapio"/>
+
+            <Button fx:id="btnPromocoes"
+                    text="🔥   Promoções"
+                    onAction="#mostrarPromocoes"
+                    maxWidth="Infinity"
+                    styleClass="item-cardapio"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="BRASA BRASIL" styleClass="eyebrow"/>
+            <Label text="Sabor que marca." styleClass="texto-secundario"/>
+        </VBox>
+    </left>
+
+    <!-- ================= PRODUTOS ================= -->
+    <center>
+        <VBox styleClass="area-produtos" spacing="16.0">
+
+            <padding>
+                <Insets top="26.0" right="28.0" bottom="0.0" left="28.0"/>
+            </padding>
+
+            <VBox spacing="4.0">
+                <Label text="FEITO NA BRASA" styleClass="eyebrow"/>
+                <Label fx:id="tituloCategoria"
+                       text="HAMBÚRGUERES"
+                       styleClass="cabecalho-secao-titulo"/>
+                <Label text="Escolha seus favoritos e monte seu pedido."
+                       styleClass="texto-secundario"/>
+            </VBox>
+
+            <Region styleClass="linha-divisoria"
+                    minHeight="1.0"
+                    prefHeight="1.0"
+                    maxHeight="1.0"/>
+
+            <ScrollPane fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <FlowPane fx:id="listaProdutos"
+                              hgap="16.0"
+                              vgap="16.0"
+                              alignment="TOP_CENTER">
+                        <padding>
+                            <Insets top="6.0" right="6.0" bottom="26.0" left="6.0"/>
+                        </padding>
+                    </FlowPane>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- ================= PEDIDO ================= -->
+    <right>
+        <VBox styleClass="painel-pedido"
+              spacing="12.0"
+              minWidth="330.0"
+              prefWidth="330.0"
+              maxWidth="330.0">
+
+            <Label text="SEU PEDIDO" styleClass="pedido-titulo"/>
+            <Label text="Confira os itens selecionados" styleClass="texto-secundario"/>
+
+            <ListView fx:id="listaPedido"
+                      styleClass="lista-pedido"
+                      VBox.vgrow="ALWAYS"/>
+
+            <Region styleClass="linha-divisoria"
+                    minHeight="1.0"
+                    prefHeight="1.0"
+                    maxHeight="1.0"/>
+
+            <HBox alignment="CENTER_LEFT">
+                <Label text="TOTAL" styleClass="resumo-rotulo"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="labelQuantidade" text="0 itens" styleClass="texto-secundario"/>
+            </HBox>
+
+            <Label fx:id="labelTotal" text="R$ 0,00" styleClass="pedido-total"/>
+
+            <Button text="FINALIZAR PEDIDO"
+                    onAction="#finalizarPedido"
+                    styleClass="botao-primario"
+                    prefHeight="46.0"
+                    maxWidth="Infinity"/>
+
+            <Button text="LIMPAR PEDIDO"
+                    onAction="#limparPedido"
+                    styleClass="botao-secundario"
+                    prefHeight="40.0"
+                    maxWidth="Infinity"/>
+        </VBox>
+    </right>
+
+</BorderPane>
+
+</Escala>

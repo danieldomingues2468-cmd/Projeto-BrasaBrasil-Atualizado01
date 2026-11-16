@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    HISTÓRICO (PAINEL ADMINISTRATIVO)
+    Conteúdo centralizado com largura máxima; a tabela ocupa todo o espaço disponível.
+-->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.HistoricoController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <center>
+        <StackPane alignment="TOP_CENTER">
+
+            <VBox spacing="20.0" maxWidth="1300.0">
+
+                <padding>
+                    <Insets top="28.0" right="40.0" bottom="28.0" left="40.0"/>
+                </padding>
+
+                <!-- TÍTULO + ATUALIZAR -->
+                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                    <VBox spacing="4.0">
+                        <Label text="PAINEL DE CLIENTES" styleClass="eyebrow"/>
+                        <Label text="Histórico de cadastros" styleClass="cabecalho-secao-titulo"/>
+                        <Label text="Consulte e acompanhe os clientes do Brasa Brasil."
+                               styleClass="texto-secundario"/>
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Button text="↻  ATUALIZAR"
+                            onAction="#atualizarTabela"
+                            styleClass="botao-acao"
+                            prefHeight="40.0"/>
+                </HBox>
+
+                <!-- CARTÕES DE RESUMO -->
+                <HBox spacing="16.0">
+                    <VBox styleClass="cartao-resumo" spacing="6.0" alignment="CENTER_LEFT"
+                          HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label text="TOTAL DE CLIENTES" styleClass="resumo-rotulo"/>
+                        <Label fx:id="totalClientes" text="0" styleClass="resumo-valor"/>
+                        <Label text="Cadastros registrados" styleClass="texto-secundario"/>
+                    </VBox>
+
+                    <VBox styleClass="cartao-resumo" spacing="6.0" alignment="CENTER_LEFT"
+                          HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label text="SISTEMA" styleClass="resumo-rotulo"/>
+                        <Label text="BRASA BRASIL" styleClass="resumo-valor-branco"/>
+                        <Label text="Gestão de clientes cadastrados" styleClass="texto-secundario"/>
+                    </VBox>
+                </HBox>
+
+                <!-- PAINEL DA TABELA -->
+                <VBox styleClass="painel-tabela" spacing="16.0" VBox.vgrow="ALWAYS">
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                        <VBox spacing="3.0">
+                            <Label text="Clientes cadastrados" styleClass="painel-titulo"/>
+                            <Label text="Lista de nomes e e-mails registrados" styleClass="texto-secundario"/>
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <TextField fx:id="campoPesquisa"
+                                   styleClass="campo"
+                                   promptText="Pesquisar cliente por nome ou e-mail..."
+                                   prefWidth="300.0"
+                                   prefHeight="40.0"/>
+
+                        <Button text="ACESSAR CONTA"
+                                onAction="#acessarContaSelecionada"
+                                styleClass="botao-acao"
+                                prefHeight="40.0"/>
+                    </HBox>
+
+                    <TableView fx:id="tabelaUsuarios"
+                               styleClass="tabela"
+                               VBox.vgrow="ALWAYS">
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <placeholder>
+                            <Label text="Nenhum cliente encontrado" styleClass="texto-secundario"/>
+                        </placeholder>
+                        <columns>
+                            <TableColumn fx:id="colunaNome" text="NOME DO CLIENTE" prefWidth="320"/>
+                            <TableColumn fx:id="colunaGmail" text="E-MAIL" prefWidth="320"/>
+                            <TableColumn fx:id="colunaCompras" text="COMPRAS" prefWidth="110"/>
+                            <TableColumn fx:id="colunaTotalGasto" text="TOTAL GASTO" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="BRASA BRASIL / GESTÃO DE CLIENTES" styleClass="texto-mini"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="PAINEL ADMINISTRATIVO" styleClass="texto-mini"/>
+                    </HBox>
+                </VBox>
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>
+
+</Escala>

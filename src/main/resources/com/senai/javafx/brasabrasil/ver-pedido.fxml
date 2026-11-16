@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!-- VER PEDIDO: pedidos do cliente logado (todos pendentes) + pagamento ilustrativo -->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.VerPedidoController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <center>
+        <StackPane alignment="TOP_CENTER">
+            <VBox spacing="20.0" maxWidth="1300.0">
+                <padding>
+                    <Insets top="28.0" right="40.0" bottom="28.0" left="40.0"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="4.0">
+                        <Label text="MEUS PEDIDOS" styleClass="eyebrow"/>
+                        <Label text="Ver pedido" styleClass="cabecalho-secao-titulo"/>
+                        <Label text="Acompanhe seus pedidos e escolha a forma de pagamento."
+                               styleClass="texto-secundario"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="IR PARA O CARDÁPIO"
+                            onAction="#irParaCardapio"
+                            styleClass="botao-acao"
+                            prefHeight="40.0"/>
+                </HBox>
+
+                <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+
+                    <!-- LISTA DE PEDIDOS -->
+                    <VBox styleClass="painel-tabela" spacing="14.0" HBox.hgrow="ALWAYS">
+                        <Label text="Histórico de pedidos" styleClass="painel-titulo"/>
+
+                        <TableView fx:id="tabelaPedidos" styleClass="tabela" VBox.vgrow="ALWAYS">
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="colunaNumero" text="PEDIDO" prefWidth="80"/>
+                                <TableColumn fx:id="colunaData" text="DATA" prefWidth="160"/>
+                                <TableColumn fx:id="colunaValor" text="VALOR" prefWidth="110"/>
+                                <TableColumn fx:id="colunaStatus" text="STATUS" prefWidth="110"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- DETALHE + PAGAMENTO -->
+                    <VBox styleClass="painel-tabela" spacing="12.0"
+                          minWidth="400.0" prefWidth="400.0" maxWidth="400.0">
+
+                        <Label fx:id="detalheTitulo" text="Seu pedido" styleClass="painel-titulo"/>
+
+                        <ListView fx:id="listaItens" styleClass="lista-pedido"
+                                  prefHeight="180.0" VBox.vgrow="ALWAYS"/>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="STATUS" styleClass="resumo-rotulo"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="detalheStatus" text="—" styleClass="campo-rotulo"/>
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="VALOR TOTAL" styleClass="resumo-rotulo"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                        </HBox>
+                        <Label fx:id="detalheTotal" text="R$ 0,00" styleClass="pedido-total"/>
+
+                        <Region styleClass="linha-divisoria"
+                                minHeight="1.0" prefHeight="1.0" maxHeight="1.0"/>
+
+                        <Label text="FORMA DE PAGAMENTO" styleClass="campo-rotulo"/>
+                        <HBox spacing="10.0">
+                            <ToggleButton fx:id="botaoDebito" text="💳  Débito"
+                                          styleClass="botao-pagamento"
+                                          HBox.hgrow="ALWAYS" maxWidth="Infinity" prefHeight="42.0"/>
+                            <ToggleButton fx:id="botaoCredito" text="💳  Crédito"
+                                          styleClass="botao-pagamento"
+                                          HBox.hgrow="ALWAYS" maxWidth="Infinity" prefHeight="42.0"/>
+                        </HBox>
+                        <Label text="Pagamento ilustrativo — nenhum valor é cobrado."
+                               styleClass="texto-mini" wrapText="true"/>
+
+                        <Label fx:id="mensagem" styleClass="mensagem-form" wrapText="true"/>
+
+                        <Button text="PAGAR PEDIDO"
+                                onAction="#pagar"
+                                styleClass="botao-primario"
+                                prefHeight="46.0"
+                                maxWidth="Infinity"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
+
+</Escala>

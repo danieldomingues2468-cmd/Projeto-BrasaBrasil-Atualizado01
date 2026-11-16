@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    CABEÇALHO ÚNICO DO SISTEMA
+    - Logo fixa à esquerda
+    - Navegação sempre centralizada na janela (independe da largura da logo)
+-->
+<StackPane xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.senai.javafx.brasabrasil.CabecalhoController"
+           stylesheets="@style.css"
+           styleClass="cabecalho"
+           minHeight="70.0"
+           prefHeight="70.0"
+           maxHeight="70.0">
+
+    <!-- LOGO -->
+    <Label text="Brasa Brasil"
+           styleClass="logo"
+           maxWidth="-Infinity"
+           StackPane.alignment="CENTER_LEFT"/>
+
+    <!-- NAVEGAÇÃO CENTRALIZADA -->
+    <HBox alignment="CENTER"
+          spacing="8.0"
+          maxWidth="-Infinity"
+          maxHeight="-Infinity"
+          StackPane.alignment="CENTER">
+
+        <Button text="Início"
+                onAction="#abrirMenu"
+                styleClass="menu-item"/>
+
+        <Button text="Cadastro"
+                onAction="#abrirCadastro"
+                styleClass="menu-item"/>
+
+        <Button text="Cardápio"
+                onAction="#abrirCardapio"
+                styleClass="menu-item"/>
+
+        <!-- Só aparece para quem está logado (controlado pelo CabecalhoController) -->
+        <Button fx:id="botaoVerPedido"
+                text="Ver Pedido"
+                onAction="#abrirVerPedido"
+                styleClass="menu-item"/>
+
+        <!-- Só aparece para o administrador (controlado pelo CabecalhoController) -->
+        <Button fx:id="botaoHistorico"
+                text="Histórico"
+                onAction="#abrirHistorico"
+                styleClass="menu-item"/>
+
+        <Button fx:id="botaoAdicionarItem"
+                text="Adicionar Item"
+                onAction="#abrirAdicionarItem"
+                styleClass="menu-item"/>
+
+        <Button fx:id="botaoAtualizarItens"
+                text="Atualizar Itens"
+                onAction="#abrirAtualizarItens"
+                styleClass="menu-item"/>
+    </HBox>
+
+</StackPane>

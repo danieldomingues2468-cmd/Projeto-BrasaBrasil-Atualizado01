@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!-- ATUALIZAR ITENS JÁ CADASTRADOS (somente administrador) -->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.AtualizarItensController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <center>
+        <StackPane alignment="TOP_CENTER">
+            <VBox spacing="20.0" maxWidth="1300.0">
+                <padding>
+                    <Insets top="28.0" right="40.0" bottom="28.0" left="40.0"/>
+                </padding>
+
+                <VBox spacing="4.0">
+                    <Label text="PAINEL ADMINISTRATIVO" styleClass="eyebrow"/>
+                    <Label text="Atualizar itens" styleClass="cabecalho-secao-titulo"/>
+                    <Label text="Selecione um item da tabela e altere nome, valor, categoria ou descrição."
+                           styleClass="texto-secundario"/>
+                </VBox>
+
+                <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+
+                    <!-- TABELA -->
+                    <VBox styleClass="painel-tabela" spacing="14.0" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <Label text="Itens do cardápio" styleClass="painel-titulo"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <TextField fx:id="campoPesquisa"
+                                       styleClass="campo"
+                                       promptText="Pesquisar por nome ou categoria..."
+                                       prefWidth="280.0"
+                                       prefHeight="40.0"/>
+                        </HBox>
+
+                        <TableView fx:id="tabelaProdutos" styleClass="tabela" VBox.vgrow="ALWAYS">
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                            <placeholder>
+                                <Label text="Nenhum item encontrado" styleClass="texto-secundario"/>
+                            </placeholder>
+                            <columns>
+                                <TableColumn fx:id="colunaNome" text="NOME" prefWidth="180"/>
+                                <TableColumn fx:id="colunaCategoria" text="CATEGORIA" prefWidth="120"/>
+                                <TableColumn fx:id="colunaPreco" text="VALOR" prefWidth="90"/>
+                                <TableColumn fx:id="colunaDescricao" text="DESCRIÇÃO" prefWidth="260"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- FORMULÁRIO DE EDIÇÃO -->
+                    <VBox styleClass="painel-tabela" spacing="12.0"
+                          minWidth="380.0" prefWidth="380.0" maxWidth="380.0">
+
+                        <Label text="Editar item" styleClass="painel-titulo"/>
+
+                        <Label text="NOME" styleClass="campo-rotulo"/>
+                        <TextField fx:id="campoNome" styleClass="campo" prefHeight="42.0"/>
+
+                        <Label text="VALOR (R$)" styleClass="campo-rotulo"/>
+                        <TextField fx:id="campoPreco" styleClass="campo" prefHeight="42.0"/>
+
+                        <Label text="CATEGORIA" styleClass="campo-rotulo"/>
+                        <ComboBox fx:id="campoCategoria"
+                                  styleClass="lista-suspensa"
+                                  maxWidth="Infinity"
+                                  prefHeight="42.0"/>
+
+                        <Label text="DESCRIÇÃO" styleClass="campo-rotulo"/>
+                        <TextArea fx:id="campoDescricao"
+                                  styleClass="area-texto"
+                                  wrapText="true"
+                                  prefRowCount="4"/>
+
+                        <Label fx:id="mensagem" styleClass="mensagem-form" wrapText="true"/>
+
+                        <Button fx:id="botaoSalvar"
+                                text="SALVAR ALTERAÇÕES"
+                                onAction="#salvar"
+                                styleClass="botao-primario"
+                                prefHeight="44.0"
+                                maxWidth="Infinity"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
+
+</Escala>

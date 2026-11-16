@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!-- ADICIONAR ITEM AO CARDÁPIO (somente administrador) -->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.AdicionarItemController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <center>
+        <ScrollPane styleClass="pagina-scroll" fitToWidth="true" hbarPolicy="NEVER">
+            <content>
+                <StackPane alignment="TOP_CENTER" styleClass="pagina">
+                    <VBox spacing="20.0" maxWidth="760.0">
+                        <padding>
+                            <Insets top="28.0" right="40.0" bottom="28.0" left="40.0"/>
+                        </padding>
+
+                        <VBox spacing="4.0">
+                            <Label text="PAINEL ADMINISTRATIVO" styleClass="eyebrow"/>
+                            <Label text="Adicionar item" styleClass="cabecalho-secao-titulo"/>
+                            <Label text="Cadastre um novo lanche, bebida ou sobremesa no cardápio."
+                                   styleClass="texto-secundario"/>
+                        </VBox>
+
+                        <VBox styleClass="painel-tabela" spacing="14.0">
+
+                            <Label text="CATEGORIA" styleClass="campo-rotulo"/>
+                            <ComboBox fx:id="campoCategoria"
+                                      styleClass="lista-suspensa"
+                                      maxWidth="Infinity"
+                                      prefHeight="44.0"/>
+
+                            <Label text="NOME" styleClass="campo-rotulo"/>
+                            <TextField fx:id="campoNome"
+                                       styleClass="campo"
+                                       promptText="Ex.: X-Bacon"
+                                       prefHeight="44.0"/>
+
+                            <Label text="VALOR (R$)" styleClass="campo-rotulo"/>
+                            <TextField fx:id="campoPreco"
+                                       styleClass="campo"
+                                       promptText="Ex.: 24,90"
+                                       prefHeight="44.0"/>
+
+                            <Label text="DESCRIÇÃO" styleClass="campo-rotulo"/>
+                            <TextArea fx:id="campoDescricao"
+                                      styleClass="area-texto"
+                                      promptText="Ex.: Pão, hambúrguer, bacon crocante e queijo."
+                                      wrapText="true"
+                                      prefRowCount="4"/>
+
+                            <Label fx:id="mensagem" styleClass="mensagem-form" wrapText="true"/>
+
+                            <Button text="ADICIONAR AO CARDÁPIO"
+                                    onAction="#salvar"
+                                    styleClass="botao-primario"
+                                    prefHeight="46.0"
+                                    maxWidth="Infinity"/>
+                        </VBox>
+                    </VBox>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
+
+</Escala>

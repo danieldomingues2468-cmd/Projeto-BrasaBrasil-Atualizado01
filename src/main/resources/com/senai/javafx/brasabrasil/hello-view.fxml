@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    TELA INICIAL
+    Texto à esquerda + imagem à direita, o conjunto centralizado na janela
+    (horizontal e vertical) e com largura máxima, para não "espalhar" em telas grandes.
+-->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.HelloController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <center>
+        <StackPane styleClass="fundo-hero">
+
+            <HBox alignment="CENTER"
+                  spacing="30.0"
+                  maxWidth="1500.0"
+                  maxHeight="-Infinity"
+                  prefHeight="560.0">
+
+                <padding>
+                    <Insets top="24.0" right="60.0" bottom="24.0" left="60.0"/>
+                </padding>
+
+                <!-- COLUNA DE TEXTO -->
+                <VBox alignment="CENTER_LEFT"
+                      spacing="18.0"
+                      prefWidth="520.0"
+                      minWidth="-Infinity"
+                      maxWidth="-Infinity">
+
+                    <Label text="SABOR • QUALIDADE • TRADIÇÃO"
+                           styleClass="eyebrow"/>
+
+                    <VBox spacing="2.0">
+                        <Label text="O VERDADEIRO"
+                               styleClass="titulo-hero-1"
+                               minWidth="-Infinity"/>
+                        <Label text="SABOR DA BRASA"
+                               styleClass="titulo-hero-2"
+                               minWidth="-Infinity"/>
+                    </VBox>
+
+                    <Region styleClass="divisor-amarelo"
+                            minHeight="3.0"
+                            prefHeight="3.0"
+                            maxHeight="3.0"
+                            prefWidth="90.0"
+                            maxWidth="90.0"/>
+
+                    <Label text="Hambúrgueres irresistíveis, ingredientes selecionados e aquele sabor que transforma cada mordida em uma grande experiência."
+                           styleClass="texto-corpo"
+                           wrapText="true"
+                           maxWidth="480.0"/>
+
+                    <Button text="EXPLORAR CARDÁPIO   →"
+                            onAction="#abrirCardapio"
+                            styleClass="botao-primario, botao-hero"
+                            prefHeight="52.0"
+                            minWidth="-Infinity"/>
+
+                    <Label text="FEITO COM PAIXÃO. SERVIDO COM PERSONALIDADE."
+                           styleClass="texto-mini"/>
+                </VBox>
+
+                <!-- IMAGEM (escala proporcionalmente conforme o espaço) -->
+                <Region styleClass="hero-imagem"
+                        HBox.hgrow="ALWAYS"
+                        minWidth="300.0"
+                        prefWidth="640.0"/>
+            </HBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>
+
+</Escala>

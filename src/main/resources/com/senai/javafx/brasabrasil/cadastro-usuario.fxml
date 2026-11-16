@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import com.senai.javafx.brasabrasil.Escala?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    TELA DE CADASTRO
+    Bloco de marca (esquerda) + cartão do formulário (direita), sempre centralizados.
+    Se a janela for muito baixa, o conteúdo ganha rolagem em vez de ser cortado.
+-->
+<Escala xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.senai.javafx.brasabrasil.CadastroController"
+        stylesheets="@style.css"
+        styleClass="pagina">
+
+<BorderPane styleClass="pagina">
+
+    <top>
+        <fx:include source="Cabecalho.fxml"/>
+    </top>
+
+    <center>
+        <StackPane styleClass="fundo-marca">
+            <ScrollPane styleClass="pagina-scroll"
+                        fitToWidth="true"
+                        fitToHeight="true"
+                        hbarPolicy="NEVER">
+                <content>
+                    <StackPane>
+
+                        <HBox alignment="CENTER"
+                              spacing="80.0"
+                              maxWidth="1200.0"
+                              maxHeight="-Infinity">
+
+                            <padding>
+                                <Insets top="16.0" right="60.0" bottom="16.0" left="60.0"/>
+                            </padding>
+
+                            <!-- BLOCO DA MARCA -->
+                            <VBox alignment="CENTER_LEFT"
+                                  spacing="12.0"
+                                  HBox.hgrow="ALWAYS"
+                                  minWidth="-Infinity"
+                                  prefWidth="460.0">
+
+                                <Label text="BRASA BRASIL" styleClass="eyebrow"/>
+
+                                <Label text="SABOR QUE"
+                                       styleClass="titulo-hero-1"
+                                       minWidth="-Infinity"/>
+
+                                <Label text="CONECTA."
+                                       styleClass="titulo-destaque"
+                                       minWidth="-Infinity"/>
+
+                                <Region styleClass="divisor-amarelo"
+                                        minHeight="3.0"
+                                        prefHeight="3.0"
+                                        maxHeight="3.0"
+                                        prefWidth="90.0"
+                                        maxWidth="90.0"/>
+
+                                <Label text="Seu próximo sabor favorito começa aqui."
+                                       styleClass="texto-corpo"
+                                       wrapText="true"
+                                       maxWidth="440.0"/>
+
+                                <Label text="Crie sua conta e faça parte da experiência Brasa Brasil."
+                                       styleClass="texto-secundario"
+                                       wrapText="true"
+                                       maxWidth="440.0"/>
+                            </VBox>
+
+                            <!-- CARTÃO DO FORMULÁRIO -->
+                            <VBox styleClass="cartao-form"
+                                  alignment="CENTER"
+                                  spacing="10.0"
+                                  minWidth="460.0"
+                                  prefWidth="480.0"
+                                  maxWidth="480.0"
+                                  maxHeight="-Infinity">
+
+                                <Label text="CRIE SUA CONTA" styleClass="cartao-titulo"/>
+                                <Label text="Entre para a família Brasa Brasil" styleClass="texto-secundario"/>
+
+                                <Region minHeight="6.0" prefHeight="6.0"/>
+
+                                <!-- NOME -->
+                                <VBox spacing="5.0">
+                                    <Label text="NOME COMPLETO" styleClass="campo-rotulo"/>
+                                    <TextField fx:id="campoNome"
+                                               styleClass="campo"
+                                               promptText="Como podemos chamar você?"
+                                               prefHeight="44.0"
+                                               maxWidth="Infinity"/>
+                                </VBox>
+
+                                <!-- E-MAIL -->
+                                <VBox spacing="5.0">
+                                    <Label text="E-MAIL" styleClass="campo-rotulo"/>
+                                    <TextField fx:id="campoGmail"
+                                               styleClass="campo"
+                                               promptText="Digite seu e-mail"
+                                               prefHeight="44.0"
+                                               maxWidth="Infinity"/>
+                                </VBox>
+
+                                <!-- SENHA -->
+                                <VBox spacing="5.0">
+                                    <Label text="SENHA" styleClass="campo-rotulo"/>
+                                    <PasswordField fx:id="campoSenha"
+                                                   styleClass="campo"
+                                                   promptText="Crie uma senha"
+                                                   prefHeight="44.0"
+                                                   maxWidth="Infinity"/>
+                                </VBox>
+
+                                <!-- CONFIRMAR SENHA -->
+                                <VBox spacing="5.0">
+                                    <Label text="CONFIRMAR SENHA" styleClass="campo-rotulo"/>
+                                    <PasswordField fx:id="campoConfirmarSenha"
+                                                   styleClass="campo"
+                                                   promptText="Digite a senha novamente"
+                                                   prefHeight="44.0"
+                                                   maxWidth="Infinity"/>
+                                </VBox>
+
+                                <!-- MENSAGEM DE RETORNO -->
+                                <Label fx:id="mensagem"
+                                       styleClass="mensagem-form"
+                                       text=""
+                                       wrapText="true"
+                                       minHeight="20.0"
+                                       maxWidth="Infinity"/>
+
+                                <Button text="CRIAR MINHA CONTA   →"
+                                        onAction="#cadastrar"
+                                        styleClass="botao-primario"
+                                        prefHeight="48.0"
+                                        maxWidth="Infinity"/>
+
+                                <HBox alignment="CENTER" spacing="6.0">
+                                    <Label text="Já tem uma conta?" styleClass="texto-secundario"/>
+                                    <Button text="ENTRAR" onAction="#abrirEntrar" styleClass="botao-link"/>
+                                </HBox>
+                            </VBox>
+
+                        </HBox>
+
+                    </StackPane>
+                </content>
+            </ScrollPane>
+        </StackPane>
+    </center>
+
+</BorderPane>
+
+</Escala>

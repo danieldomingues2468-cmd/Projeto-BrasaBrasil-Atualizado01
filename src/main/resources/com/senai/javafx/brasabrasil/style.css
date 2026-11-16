@@ -1,0 +1,679 @@
+/* =====================================================================
+   BRASA BRASIL - TEMA ÚNICO
+   Todas as telas usam este arquivo. Nada de estilo solto dentro dos FXML.
+   ===================================================================== */
+
+/* ---------- Paleta e variáveis ---------- */
+.root {
+    -cor-fundo:        #0B0B0C;
+    -cor-fundo-2:      #111113;
+    -cor-superficie:   #161618;
+    -cor-superficie-2: #1D1D20;
+    -cor-borda:        #2A2A2E;
+    -cor-borda-forte:  #3A3A40;
+    -cor-amarelo:      #FFD02F;
+    -cor-amarelo-hover:#FFDC5E;
+    -cor-amarelo-fraco: rgba(255, 208, 47, 0.14);
+    -cor-texto:        #FFFFFF;
+    -cor-texto-2:      #C9C9CE;
+    -cor-texto-3:      #8E8E96;
+
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color: -cor-fundo;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.pagina {
+    -fx-background-color: -cor-fundo;
+}
+
+/* Remove as camadas/bordas padrão do tema Modena para o nosso visual valer sozinho */
+.button {
+    -fx-background-insets: 0;
+}
+
+.text-field,
+.password-field {
+    -fx-background-insets: 0;
+}
+
+/* =====================================================================
+   CABEÇALHO
+   ===================================================================== */
+.cabecalho {
+    -fx-background-color: #0F0F10;
+    -fx-border-color: transparent transparent -cor-borda transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 40 0 40;
+}
+
+.logo {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-family: "Arial Black", "Arial";
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-text-fill: -cor-texto-2;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22 10 22;
+    -fx-cursor: hand;
+}
+
+.menu-item:hover {
+    -fx-background-color: -cor-amarelo-fraco;
+    -fx-text-fill: -cor-amarelo;
+}
+
+.menu-item:pressed {
+    -fx-background-color: rgba(255, 208, 47, 0.24);
+}
+
+/* =====================================================================
+   FUNDOS DE PÁGINA
+   ===================================================================== */
+.fundo-marca {
+    -fx-background-color:
+        radial-gradient(center 22% 25%, radius 55%, rgba(255, 208, 47, 0.10), transparent),
+        linear-gradient(to bottom, #0E0E10, #080809);
+}
+
+.fundo-hero {
+    -fx-background-color:
+        radial-gradient(center 75% 50%, radius 45%, rgba(255, 150, 30, 0.10), transparent),
+        #050505;
+}
+
+.pagina-scroll,
+.pagina-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.pagina-scroll {
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+/* =====================================================================
+   TIPOGRAFIA
+   ===================================================================== */
+.eyebrow {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.titulo-hero-1 {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Black", "Arial";
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}
+
+.titulo-hero-2 {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-family: "Arial Black", "Arial";
+    -fx-font-size: 44px;
+    -fx-font-weight: bold;
+}
+
+/* Imagem do hero: escala sozinha para caber na coluna, sem distorcer */
+.hero-imagem {
+    -fx-background-image: url("imagens/hero-burger.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.titulo-grande {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Black", "Arial";
+    -fx-font-size: 44px;
+    -fx-font-weight: bold;
+}
+
+.titulo-destaque {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-family: "Arial Black", "Arial";
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+}
+
+.texto-corpo {
+    -fx-text-fill: -cor-texto-2;
+    -fx-font-size: 17px;
+    -fx-line-spacing: 5;
+}
+
+.texto-secundario {
+    -fx-text-fill: -cor-texto-3;
+    -fx-font-size: 14px;
+}
+
+.texto-mini {
+    -fx-text-fill: #6D6D75;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.divisor-amarelo {
+    -fx-background-color: -cor-amarelo;
+    -fx-background-radius: 2;
+}
+
+/* =====================================================================
+   CARTÃO DE FORMULÁRIO (Cadastro / Entrar)
+   ===================================================================== */
+.cartao-form {
+    -fx-background-color: #0E0E10;
+    -fx-background-radius: 20;
+    -fx-border-color: -cor-borda-forte;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 32 40 28 40;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 40, 0, 0, 14);
+}
+
+.cartao-titulo {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Black", "Arial";
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.campo-rotulo {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.campo {
+    -fx-background-color: -cor-superficie;
+    -fx-background-radius: 10;
+    -fx-border-color: -cor-borda-forte;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #7C7C84;
+    -fx-highlight-fill: rgba(255, 208, 47, 0.35);
+    -fx-highlight-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-padding: 0 16 0 16;
+}
+
+.campo:focused {
+    -fx-border-color: -cor-amarelo;
+    -fx-background-color: #1A1A1D;
+}
+
+.mensagem-form {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 13px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+/* =====================================================================
+   BOTÕES
+   ===================================================================== */
+.botao-primario {
+    -fx-background-color: -cor-amarelo;
+    -fx-background-radius: 10;
+    -fx-text-fill: #111111;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.botao-primario:hover {
+    -fx-background-color: -cor-amarelo-hover;
+}
+
+.botao-primario:pressed {
+    -fx-background-color: #E9B91A;
+}
+
+.botao-secundario {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-color: -cor-borda-forte;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.botao-secundario:hover {
+    -fx-border-color: -cor-amarelo;
+    -fx-text-fill: -cor-amarelo;
+}
+
+.botao-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 2 4 2 4;
+    -fx-cursor: hand;
+}
+
+.botao-link:hover {
+    -fx-text-fill: -cor-amarelo-hover;
+    -fx-underline: true;
+}
+
+.botao-hero {
+    -fx-padding: 0 28 0 28;
+    -fx-font-size: 15px;
+    -fx-background-radius: 8;
+}
+
+/* =====================================================================
+   CARDÁPIO
+   ===================================================================== */
+.barra-lateral {
+    -fx-background-color: #0D0D0E;
+    -fx-border-color: transparent -cor-borda transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 28 16 22 16;
+}
+
+.lateral-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.item-cardapio {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-text-fill: -cor-texto-2;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 13 16 13 16;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+
+.item-cardapio:hover {
+    -fx-background-color: rgba(255, 208, 47, 0.10);
+    -fx-text-fill: -cor-amarelo;
+}
+
+.item-cardapio.ativo {
+    -fx-background-color: rgba(255, 208, 47, 0.16);
+    -fx-text-fill: -cor-amarelo;
+}
+
+.area-produtos {
+    -fx-background-color: -cor-fundo-2;
+}
+
+.cabecalho-secao-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.linha-divisoria {
+    -fx-background-color: -cor-borda;
+}
+
+.card-produto {
+    -fx-background-color: -cor-superficie;
+    -fx-background-radius: 14;
+    -fx-border-color: -cor-borda;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 18;
+}
+
+.card-produto:hover {
+    -fx-border-color: rgba(255, 208, 47, 0.55);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 18, 0, 0, 6);
+}
+
+.card-icone {
+    -fx-background-color: #25221A;
+    -fx-background-radius: 12;
+    -fx-font-size: 30px;
+    -fx-alignment: center;
+}
+
+.card-nome {
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.card-descricao {
+    -fx-text-fill: -cor-texto-3;
+    -fx-font-size: 12px;
+}
+
+.card-preco {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.card-destaque {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.painel-pedido {
+    -fx-background-color: #0D0D0E;
+    -fx-border-color: transparent transparent transparent -cor-borda;
+    -fx-border-width: 0 0 0 1;
+    -fx-padding: 24 22 22 22;
+}
+
+.pedido-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.pedido-total {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.lista-pedido {
+    -fx-background-color: -cor-superficie;
+    -fx-control-inner-background: -cor-superficie;
+    -fx-background-radius: 10;
+    -fx-border-color: -cor-borda;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+}
+
+.lista-pedido .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cor-texto-2;
+    -fx-font-size: 13px;
+    -fx-padding: 9 10 9 10;
+}
+
+.lista-pedido .list-cell:filled:selected,
+.lista-pedido .list-cell:filled:hover {
+    -fx-background-color: rgba(255, 208, 47, 0.10);
+    -fx-text-fill: white;
+}
+
+.lista-pedido .placeholder .label {
+    -fx-text-fill: #6D6D75;
+    -fx-font-size: 13px;
+}
+
+/* =====================================================================
+   HISTÓRICO (painel administrativo)
+   ===================================================================== */
+.cartao-resumo {
+    -fx-background-color: -cor-superficie;
+    -fx-background-radius: 12;
+    -fx-border-color: -cor-borda;
+    -fx-border-radius: 12;
+    -fx-padding: 18 22 18 22;
+}
+
+.resumo-rotulo {
+    -fx-text-fill: -cor-texto-3;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.resumo-valor {
+    -fx-text-fill: -cor-amarelo;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.resumo-valor-branco {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.painel-tabela {
+    -fx-background-color: #131315;
+    -fx-background-radius: 12;
+    -fx-border-color: -cor-borda;
+    -fx-border-radius: 12;
+    -fx-padding: 22;
+}
+
+.painel-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.botao-acao {
+    -fx-background-color: -cor-amarelo;
+    -fx-background-radius: 8;
+    -fx-text-fill: #111111;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 18 0 18;
+    -fx-cursor: hand;
+}
+
+.botao-acao:hover {
+    -fx-background-color: -cor-amarelo-hover;
+}
+
+.tabela {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: #131315;
+    -fx-control-inner-background-alt: #19191C;
+    -fx-table-cell-border-color: transparent;
+    -fx-border-color: -cor-borda;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.tabela .column-header-background {
+    -fx-background-color: #1D1D20;
+}
+
+.tabela .column-header,
+.tabela .filler {
+    -fx-background-color: #1D1D20;
+    -fx-size: 40;
+    -fx-border-color: transparent transparent -cor-borda transparent;
+}
+
+.tabela .column-header .label {
+    -fx-text-fill: -cor-texto-3;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.tabela .table-row-cell {
+    -fx-cell-size: 42;
+    -fx-text-fill: white;
+}
+
+.tabela .table-cell {
+    -fx-text-fill: -cor-texto-2;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 12 0 12;
+}
+
+.tabela .table-row-cell:filled:hover {
+    -fx-background-color: rgba(255, 208, 47, 0.08);
+}
+
+.tabela .table-row-cell:filled:selected,
+.tabela .table-row-cell:filled:selected .table-cell {
+    -fx-background-color: rgba(255, 208, 47, 0.18);
+    -fx-text-fill: white;
+}
+
+.tabela .placeholder .label {
+    -fx-text-fill: #6D6D75;
+}
+
+/* =====================================================================
+   COMPONENTES GENÉRICOS
+   ===================================================================== */
+.separator .line {
+    -fx-border-color: -cor-borda;
+    -fx-border-width: 1 0 0 0;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 2;
+}
+
+.scroll-bar > .thumb {
+    -fx-background-color: #34343A;
+    -fx-background-radius: 6;
+    -fx-background-insets: 0;
+}
+
+.scroll-bar > .thumb:hover {
+    -fx-background-color: #4A4A52;
+}
+
+.scroll-bar > .track,
+.scroll-bar > .track-background,
+.scroll-bar > .increment-button,
+.scroll-bar > .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 12;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 12;
+}
+
+/* =====================================================================
+   GERENCIAR CARDÁPIO (Adicionar Item / Atualizar Itens)
+   ===================================================================== */
+.area-texto {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: -cor-superficie;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #7C7C84;
+    -fx-highlight-fill: rgba(255, 208, 47, 0.35);
+    -fx-highlight-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+.area-texto .content {
+    -fx-background-color: -cor-superficie;
+    -fx-background-radius: 10;
+    -fx-border-color: -cor-borda-forte;
+    -fx-border-radius: 10;
+}
+
+.area-texto:focused .content {
+    -fx-border-color: -cor-amarelo;
+}
+
+.lista-suspensa {
+    -fx-background-color: -cor-superficie;
+    -fx-background-radius: 10;
+    -fx-border-color: -cor-borda-forte;
+    -fx-border-radius: 10;
+    -fx-font-size: 15px;
+}
+
+.lista-suspensa .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 10;
+}
+
+.lista-suspensa .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.lista-suspensa .arrow {
+    -fx-background-color: -cor-amarelo;
+}
+
+.lista-suspensa:focused {
+    -fx-border-color: -cor-amarelo;
+}
+
+.lista-suspensa .list-view {
+    -fx-background-color: -cor-superficie;
+}
+
+.lista-suspensa .list-view .list-cell:filled:hover,
+.lista-suspensa .list-view .list-cell:filled:selected {
+    -fx-background-color: -cor-amarelo-fraco;
+    -fx-text-fill: -cor-amarelo;
+}
+
+.campo:disabled, .area-texto:disabled, .lista-suspensa:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* =====================================================================
+   VER PEDIDO (forma de pagamento ilustrativa)
+   ===================================================================== */
+.botao-pagamento {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-color: -cor-borda-forte;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.botao-pagamento:hover {
+    -fx-border-color: -cor-amarelo;
+}
+
+.botao-pagamento:selected {
+    -fx-background-color: -cor-amarelo-fraco;
+    -fx-border-color: -cor-amarelo;
+    -fx-text-fill: -cor-amarelo;
+}
